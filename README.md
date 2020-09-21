@@ -16,3 +16,7 @@
    5. link to style.css
    6. create header, main and footer
    7. style elements
+4. Display Products
+   1. create products div
+   2. add product attributes
+   3. add link, image, name and price
