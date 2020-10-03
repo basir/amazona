@@ -1,5 +1,9 @@
 # Amazona ECommerce Website
 
+# PLEASE DO NOT SEND PULL REQUEST
+
+# ALL PRs WILL BE REJECTED UNTIL DECEMBER 2020
+
 1. Introduction to this course
    1. what you will build
    2. what you will learn
@@ -144,3 +148,13 @@
     1. create signin constants, actions and reducers
     2. add reducer to store.js
     3. use action in SigninScreen.js
+23. Create Register Screen
+    1. create API for /api/users/register
+    2. insert new user to database
+    3. return user info and token
+    4. create RegisterScreen
+    5. Add fields
+    6. Style fields
+    7. Add screen to App.js
+    8. create register action and reducer
+    9. check validation and create user
