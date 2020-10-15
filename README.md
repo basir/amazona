@@ -206,3 +206,7 @@
 34. Update User Profile
     1. create user update api
     2. update user info
+35. Create Admin View
+    1. Create Admin Menu
+    2. Create Admin Middleware in Backend
+    3. Create Admin Route in Frontend
