@@ -214,3 +214,8 @@
     1. Create Product List Screen
     2. Add reducer to store
     3. show products on the screen
+37. Create Product
+    1. build create product api
+    2. build Create Product button
+    3. define product create constant, action and reducer
+    4. use action in Product List Screen
