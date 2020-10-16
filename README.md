@@ -219,3 +219,8 @@
     2. build Create Product button
     3. define product create constant, action and reducer
     4. use action in Product List Screen
+    5. create edit screen
+    6. define state
+    7. create fields
+    8. load product details
+    9. add to routes
