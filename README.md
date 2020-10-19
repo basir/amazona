@@ -234,3 +234,7 @@
     7. define upload router
     8. create uploads folder 
     9. Handle frontend
+41. Delete Product
+    1.  create delete api in backend
+    2.  create delete constants, action and reducer
+    3.  use it in product list screen
