@@ -30,8 +30,8 @@ Welcome to my React and Node tutorial to build a fully-functional e-commerce web
 ### 1. Clone repo
 
 ```
-$ git clone git@github.com:basir/node-react-ecommerce.git
-$ cd node-react-ecommerce
+$ git clone git@github.com:basir/amazona.git
+$ cd amazona
 ```
 
 ### 2. Setup MongoDB
@@ -44,6 +44,7 @@ $ cd node-react-ecommerce
   - Create database at [https://cloud.mongodb.com](https://cloud.mongodb.com)
   - Create .env file in root folder
   - Set MONGODB_URL=MONGODB_URL=mongodb+srv://your-db-connection
+
 ### 3. Run Backend
 
 ```
@@ -67,15 +68,10 @@ $ npm start
 - Run this on chrome: http://localhost:5000/api/products
 - It creates 6 sample products
 
-### 6. Login
+### 6. Admin Login
 
 - Run http://localhost:3000/signin
 - Enter admin email and password and click signin
-
-### 7. Create Products
-
-- Run http://localhost:3000/products
-- Click create product and enter product info
 
 ## Support
 
