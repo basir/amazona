@@ -340,3 +340,7 @@ $ npm start
     1. build api for list users
     2. Create UserList Screen
     3. create order details constant, action and reducer
+47. Delete Users
+    1. build api for delete users
+    2. create order details constant, action and reducer
+    3. Use action in UserListScreen
