@@ -347,3 +347,9 @@ $ npm start
 48. Edit User
     1. build api for update users
     2. create edit screen UI
+49. Implement Seller View
+    1. add seller menu
+    2. create seller route
+    3. list products for seller
+    4. list orders for seller
+    5. add Seller to Product List and Details Screen

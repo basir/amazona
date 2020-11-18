@@ -109,13 +109,13 @@ export const listOrderMine = () => async (dispatch, getState) => {
     dispatch({ type: ORDER_MINE_LIST_FAIL, payload: message });
   }
 };
-export const listOrders = () => async (dispatch, getState) => {
+export const listOrders = ({ seller = '' }) => async (dispatch, getState) => {
   dispatch({ type: ORDER_LIST_REQUEST });
   const {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = await Axios.get('/api/orders', {
+    const { data } = await Axios.get(`/api/orders?seller=${seller}`, {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     });
     console.log(data);
