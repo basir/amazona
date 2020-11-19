@@ -12,6 +12,7 @@
     "react-dom": "^16.13.1",
     "react-paypal-button-v2": "^2.6.2",
     "react-redux": "^7.2.1",
+    "react-responsive-carousel": "^3.2.10",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "redux": "^4.0.5",
