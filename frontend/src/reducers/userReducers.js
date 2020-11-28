@@ -1,4 +1,5 @@
 import {
+  USER_ADDRESS_MAP_CONFIRM,
   USER_DELETE_FAIL,
   USER_DELETE_REQUEST,
   USER_DELETE_RESET,
@@ -133,6 +134,15 @@ export const userTopSellerListReducer = (state = { loading: true }, action) => {
       return { loading: false, users: action.payload };
     case USER_TOPSELLERS_LIST_FAIL:
       return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const userAddressMapReducer = (state = {}, action) => {
+  switch (action.type) {
+    case USER_ADDRESS_MAP_CONFIRM:
+      return { address: action.payload };
     default:
       return state;
   }
