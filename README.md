@@ -370,13 +370,23 @@ $ npm start
     4. edit parse url to get query string
     5. update product list api for search by name
  54. Add Advanced Search Filter
-     1.  filter by category
-     2.  filter by price range
-     3.  filter by average rating
+    1. filter by category
+    2. filter by price range
+    3. filter by average rating
  55. Complete Advanced Search
-     1.  filter by price
-     2.  filter by rating
-     3.  sort by price, rating, ...
+    1. filter by price
+    2. filter by rating
+    3. sort by price, rating, ...
  56. Rate and Review Products
-     1.  rate products
-     2.  create actions and reducers
+    1. rate products
+    2. create actions and reducers
+ 57. Choose Address On Google Map
+    1. create google map credentials
+    2. update .env file with Google Api Key
+    3. create api to send google api to frontend
+    4. create map screen
+    5. fetch google api
+    6. getUserLocation
+    7. install @react-google-maps/api
+    8. use it in shipping screen
+    9. apply map to the checkout screen
