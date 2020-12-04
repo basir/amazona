@@ -1,23 +1,23 @@
-import express from 'express';
-import expressAsyncHandler from 'express-async-handler';
-import bcrypt from 'bcryptjs';
-import data from '../data.js';
-import User from '../models/userModel.js';
-import { generateToken, isAuth } from '../utils.js';
+import express from "express";
+import expressAsyncHandler from "express-async-handler";
+import bcrypt from "bcryptjs";
+import data from "../data.js";
+import User from "../models/userModel.js";
+import { generateToken, isAdmin, isAuth } from "../utils.js";
 
 const userRouter = express.Router();
 
 userRouter.get(
-  '/seed',
+  "/seed",
   expressAsyncHandler(async (req, res) => {
-    // await User.remove({});
+    await User.remove({});
     const createdUsers = await User.insertMany(data.users);
     res.send({ createdUsers });
   })
 );
 
 userRouter.post(
-  '/signin',
+  "/signin",
   expressAsyncHandler(async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     if (user) {
@@ -32,12 +32,12 @@ userRouter.post(
         return;
       }
     }
-    res.status(401).send({ message: 'Invalid email or password' });
+    res.status(401).send({ message: "Invalid email or password" });
   })
 );
 
 userRouter.post(
-  '/register',
+  "/register",
   expressAsyncHandler(async (req, res) => {
     const user = new User({
       name: req.body.name,
@@ -56,18 +56,18 @@ userRouter.post(
 );
 
 userRouter.get(
-  '/:id',
+  "/:id",
   expressAsyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id);
     if (user) {
       res.send(user);
     } else {
-      res.status(404).send({ message: 'User Not Found' });
+      res.status(404).send({ message: "User Not Found" });
     }
   })
 );
 userRouter.put(
-  '/profile',
+  "/profile",
   isAuth,
   expressAsyncHandler(async (req, res) => {
     const user = await User.findById(req.user._id);
@@ -88,4 +88,15 @@ userRouter.put(
     }
   })
 );
+
+userRouter.get(
+  "/",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const users = await User.find({});
+    res.send(users);
+  })
+);
+
 export default userRouter;
