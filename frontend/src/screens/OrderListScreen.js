@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteOrder, listOrders } from '../actions/orderActions';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
-import { ORDER_DELETE_RESET } from '../constants/orderConstants';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteOrder, listOrders } from "../actions/orderActions";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
+import { ORDER_DELETE_RESET } from "../constants/orderConstants";
 
 export default function OrderListScreen(props) {
   const orderList = useSelector((state) => state.orderList);
@@ -20,7 +20,7 @@ export default function OrderListScreen(props) {
     dispatch(listOrders());
   }, [dispatch, successDelete]);
   const deleteHandler = (order) => {
-    if (window.confirm('Are you sure to delete?')) {
+    if (window.confirm("Are you sure to delete?")) {
       dispatch(deleteOrder(order._id));
     }
   };
@@ -50,14 +50,14 @@ export default function OrderListScreen(props) {
             {orders.map((order) => (
               <tr key={order._id}>
                 <td>{order._id}</td>
-                <td>{order.user.name}</td>
+                <td>order.user.name</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
                 <td>{order.totalPrice.toFixed(2)}</td>
-                <td>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</td>
+                <td>{order.isPaid ? order.paidAt.substring(0, 10) : "No"}</td>
                 <td>
                   {order.isDelivered
                     ? order.deliveredAt.substring(0, 10)
-                    : 'No'}
+                    : "No"}
                 </td>
                 <td>
                   <button
