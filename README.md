@@ -63,9 +63,9 @@ $ npm start
 
 ### 5. Seed Users and Products
 
-- Run this on chrome: http://localhost:5000/api/users
+- Run this on chrome: http://localhost:5000/api/users/seed
 - It returns admin email and password
-- Run this on chrome: http://localhost:5000/api/products
+- Run this on chrome: http://localhost:5000/api/products/seed
 - It creates 6 sample products
 
 ### 6. Admin Login
@@ -390,3 +390,8 @@ $ npm start
     7. install @react-google-maps/api
     8. use it in shipping screen
     9. apply map to the checkout screen
+ 58. BugFix: Running Locally Without Issue
+     1.  add seller info to data.js
+     2.  seed product data with admin info as seller
+     3.  fix isSeller and isAdmin on update user
+     4.  remove auth from user details
