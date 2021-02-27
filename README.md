@@ -395,6 +395,10 @@ $ npm start
      2.  seed product data with admin info as seller
      3.  fix isSeller and isAdmin on update user
      4.  remove auth from user details
+ 59. Implement Pagination
+     1.  add pagination to product router in backend
+     2.  apply page number to actions and reducers in frontend
+     3.  show page numbers in search screen
   60. Email order receipt by mailgun
      1.  create mailgun account
      2.  add and verify your domain to mailgun
