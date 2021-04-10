@@ -11,6 +11,7 @@
     "axios": "^0.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-google-charts": "^3.0.15",
     "react-paypal-button-v2": "^2.6.2",
     "react-redux": "^7.2.1",
     "react-responsive-carousel": "^3.2.10",
