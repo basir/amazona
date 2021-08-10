@@ -1,17 +1,13 @@
 # Amazona ECommerce Website
 ![amazona](/template/images/amazona.jpg)
 
-## PLEASE DO NOT SEND PULL REQUEST
-## ALL PRs WILL BE REJECTED UNTIL DECEMBER 2020
-
 # React & Node Tutorial - Full ECommerce in 9 Hours [2021]
-
 Welcome to my React and Node tutorial to build a fully-functional e-commerce website exactly like amazon. Open your code editor and follow me for the next hours to build an e-commerce website using MERN stack (MongoDB, ExpressJS, React and Node.JS).
 
 ## Demo Website
 
-- 👉 Heroku : [https://newamazona-final.herokuapp.com](https://newamazona-final.herokuapp.com)
-- 👉 AWS : [https://amazona.webacademy.pro](https://amazona.webacademy.pro)
+- 👉 Heroku : [https://react-amazona.herokuapp.com](https://react-amazona.herokuapp.com)
+- 👉 Heroku Mirror: [https://react-amazona-mirror.herokuapp.com](https://react-amazona-mirror.herokuapp.com)
 
 
 ## You Will Learn
