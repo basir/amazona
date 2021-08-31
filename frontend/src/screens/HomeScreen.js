@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 export default function HomeScreen() {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
+  console.log(productList)
   const { loading, error, products } = productList;
 
   const userTopSellersList = useSelector((state) => state.userTopSellersList);
@@ -27,13 +28,13 @@ export default function HomeScreen() {
   }, [dispatch]);
   return (
     <div>
-      <h2>Top Sellers</h2>
+    <h2>Top Sellers</h2>
       {loadingSellers ? (
         <LoadingBox></LoadingBox>
       ) : errorSellers ? (
         <MessageBox variant="danger">{errorSellers}</MessageBox>
       ) : (
-        <>
+        <div>
           {sellers.length === 0 && <MessageBox>No Seller Found</MessageBox>}
           <Carousel showArrows autoPlay showThumbs={false}>
             {sellers.map((seller) => (
@@ -45,7 +46,7 @@ export default function HomeScreen() {
               </div>
             ))}
           </Carousel>
-        </>
+        </div>
       )}
       <h2>Featured Products</h2>
       {loading ? (

@@ -14,6 +14,20 @@ body {
   height: 100%;
 }
 
+.address{
+  min-height: 80vh;
+  min-width: 70vw;
+  max-width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+}
+
+.addressH1{
+  font-size: 3rem;
+  font-weight: 100;
+}
+
 /* Layout */
 .grid-container {
   display: grid;
@@ -29,6 +43,7 @@ header {
   grid-area: header;
   background-color: #203040;
 }
+
 main {
   grid-area: main;
   padding: 1rem;
@@ -52,7 +67,8 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #ff8000;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
 }
 ul {
   padding: 0;
@@ -62,6 +78,15 @@ ul {
 li {
   margin-top: 1rem;
 }
+
+.returns{
+  font-size: 1.3rem;
+}
+
+.orders{
+  font-size: 1.4rem;
+}
+
 input,
 select,
 textarea,
@@ -117,6 +142,31 @@ a.brand {
   justify-content: space-between;
   align-items: center;
 }
+
+.rowHeader {
+  background-color: #131921;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  min-height: 9vh;
+}
+
+.rowHeaderInside{
+  background-color: #131921;
+  min-width: 98vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 9vh;
+}
+
+
+.rowSearch {
+  display: flex;
+  width: 45em;
+}
+
+
 .row.center {
   justify-content: center;
 }

@@ -1,0 +1,6 @@
+addressReducers: Created addressReducers file (support file)
+addressConstants: Created addressConstants file (support file)
+AddressActions: Created AddressActions file (support file)
+AddressScreen: Created AddressScreen file to let the users add and see their saved addresses.
+App.js: Redesigned the navbar to match that of Amazon. Introduced the address feature.
+store.js: (support file)
