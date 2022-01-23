@@ -5,7 +5,9 @@ import { signout } from './actions/userActions';
 import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
 import CartScreen from './screens/CartScreen';
+import ReturnScreen from './screens/ReturnScreen';
 import HomeScreen from './screens/HomeScreen';
+import AddressScreen from './screens/AddressScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import OrderScreen from './screens/OrderScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
@@ -55,18 +57,25 @@ function App() {
   return (
     <BrowserRouter>
       <div className="grid-container">
-        <header className="row">
+      <div className="rowHeader">
+        <header className="rowHeaderInside">
           <div>
-            <button
+            {
+              <button
               type="button"
               className="open-sidebar"
               onClick={() => setSidebarIsOpen(true)}
             >
               <i className="fa fa-bars"></i>
             </button>
-            <Link className="brand" to="/">
-              amazona
+            }
+            <Link className="brand" to="/" style={{fontSize:'2.8rem'}}>amazona
             </Link>
+
+            <Link className="brand" to="/address" style={{fontSize:'1.4rem'}}>
+            <i class="fa fa-map-marker" aria-hidden="true" style={{fontSize:'3rem'}}></i> <b>Your Addresses</b>
+            </Link>
+          
           </div>
           <div>
             <Route
@@ -76,16 +85,10 @@ function App() {
             ></Route>
           </div>
           <div>
-            <Link to="/cart">
-              Cart
-              {cartItems.length > 0 && (
-                <span className="badge">{cartItems.length}</span>
-              )}
-            </Link>
             {userInfo ? (
               <div className="dropdown">
-                <Link to="#">
-                  {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
+                <Link to="#" style={{padding:'30px'}}>Hello {userInfo.name} <i className="fa fa-caret-down"></i>
+                  <br></br><span style={{fontSize:'1.3rem'}}><b>Accounts & Lists</b></span>
                 </Link>
                 <ul className="dropdown-content">
                   <li>
@@ -143,12 +146,25 @@ function App() {
                 </ul>
               </div>
             )}
+            <Link to="/cart">
+              <span className="returns">Returns</span> <span className="orders"><b>& Orders</b></span>
+              {cartItems.length > 0 && (
+                <span className="badge">{cartItems.length}</span>
+              )}
+            </Link>
+            <Link to="/cart">
+            <i class="fa fa-shopping-cart" style={{fontSize:'3rem'}} aria-hidden="true"></i> Cart
+              {cartItems.length > 0 && (
+                <span className="badge">{cartItems.length}</span>
+              )}
+            </Link>
           </div>
         </header>
+        </div>
         <aside className={sidebarIsOpen ? 'open' : ''}>
           <ul className="categories">
             <li>
-              <strong>Categories</strong>
+              <h1><strong>Hello customer </strong></h1>
               <button
                 onClick={() => setSidebarIsOpen(false)}
                 className="close-sidebar"
@@ -177,7 +193,9 @@ function App() {
         </aside>
         <main>
           <Route path="/seller/:id" component={SellerScreen}></Route>
+          <Route path="/address" component={AddressScreen}></Route>
           <Route path="/cart/:id?" component={CartScreen}></Route>
+          <Route path="/return/:id?" component={ReturnScreen}></Route>
           <Route path="/product/:id" component={ProductScreen} exact></Route>
           <Route
             path="/product/:id/edit"
@@ -259,6 +277,7 @@ function App() {
           <div>All right reserved</div>{' '}
         </footer>
       </div>
+      
     </BrowserRouter>
   );
 }

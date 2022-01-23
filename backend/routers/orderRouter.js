@@ -85,6 +85,7 @@ orderRouter.post(
   '/',
   isAuth,
   expressAsyncHandler(async (req, res) => {
+    console.log("Order req ", req)
     if (req.body.orderItems.length === 0) {
       res.status(400).send({ message: 'Cart is empty' });
     } else {

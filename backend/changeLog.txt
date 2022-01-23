@@ -1,0 +1,3 @@
+addressModel: Built the address model to store the addresses for customers, sellers and admins together based on their user ID.
+server.js: Changed the server.js file to add the routes for Address creation and fetch
+addressRouter: Created this file to perform all the logic of address posting and fetching with the correct routes. (Post on Postman, Fetch on App)

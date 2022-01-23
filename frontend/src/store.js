@@ -21,6 +21,9 @@ import {
   productUpdateReducer,
 } from './reducers/productReducers';
 import {
+  addressListReducer,
+} from './reducers/addressReducers';
+import {
   userAddressMapReducer,
   userDeleteReducer,
   userDetailsReducer,
@@ -49,6 +52,7 @@ const initialState = {
   },
 };
 const reducer = combineReducers({
+  addressesList: addressListReducer,
   productList: productListReducer,
   productDetails: productDetailsReducer,
   cart: cartReducer,
