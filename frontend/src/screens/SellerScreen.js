@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../actions/productActions';
 import { detailsUser } from '../actions/userActions';
@@ -8,7 +9,9 @@ import Product from '../components/Product';
 import Rating from '../components/Rating';
 
 export default function SellerScreen(props) {
-  const sellerId = props.match.params.id;
+  const params = useParams();
+  const { id: sellerId } = params;
+
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
 

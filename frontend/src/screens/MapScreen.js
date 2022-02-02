@@ -9,11 +9,13 @@ import LoadingBox from '../components/LoadingBox';
 import Axios from 'axios';
 import { USER_ADDRESS_MAP_CONFIRM } from '../constants/userConstants';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const libs = ['places'];
 const defaultLocation = { lat: 45.516, lng: -73.56 };
 
 export default function MapScreen(props) {
+  const navigate = useNavigate();
   const [googleApiKey, setGoogleApiKey] = useState('');
   const [center, setCenter] = useState(defaultLocation);
   const [location, setLocation] = useState(center);
@@ -69,7 +71,7 @@ export default function MapScreen(props) {
         },
       });
       alert('location selected successfully.');
-      props.history.push('/shipping');
+      navigate('/shipping');
     } else {
       alert('Please enter your address');
     }

@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { register } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
 export default function RegisterScreen(props) {
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const redirect = props.location.search
-    ? props.location.search.split('=')[1]
-    : '/';
+  const { search } = useLocation();
+  const redirectInUrl = new URLSearchParams(search).get('redirect');
+  const redirect = redirectInUrl ? redirectInUrl : '/';
 
   const userRegister = useSelector((state) => state.userRegister);
   const { userInfo, loading, error } = userRegister;
@@ -29,9 +30,9 @@ export default function RegisterScreen(props) {
   };
   useEffect(() => {
     if (userInfo) {
-      props.history.push(redirect);
+      navigate(redirect);
     }
-  }, [props.history, redirect, userInfo]);
+  }, [navigate, redirect, userInfo]);
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Link, Route } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { signout } from './actions/userActions';
 import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
@@ -69,11 +69,7 @@ function App() {
             </Link>
           </div>
           <div>
-            <Route
-              render={({ history }) => (
-                <SearchBox history={history}></SearchBox>
-              )}
-            ></Route>
+            <SearchBox />
           </div>
           <div>
             <Link to="/cart">
@@ -176,83 +172,145 @@ function App() {
           </ul>
         </aside>
         <main>
-          <Route path="/seller/:id" component={SellerScreen}></Route>
-          <Route path="/cart/:id?" component={CartScreen}></Route>
-          <Route path="/product/:id" component={ProductScreen} exact></Route>
-          <Route
-            path="/product/:id/edit"
-            component={ProductEditScreen}
-            exact
-          ></Route>
-          <Route path="/signin" component={SigninScreen}></Route>
-          <Route path="/register" component={RegisterScreen}></Route>
-          <Route path="/shipping" component={ShippingAddressScreen}></Route>
-          <Route path="/payment" component={PaymentMethodScreen}></Route>
-          <Route path="/placeorder" component={PlaceOrderScreen}></Route>
-          <Route path="/order/:id" component={OrderScreen}></Route>
-          <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
-          <Route
-            path="/search/name/:name?"
-            component={SearchScreen}
-            exact
-          ></Route>
-          <Route
-            path="/search/category/:category"
-            component={SearchScreen}
-            exact
-          ></Route>
-          <Route
-            path="/search/category/:category/name/:name"
-            component={SearchScreen}
-            exact
-          ></Route>
-          <Route
-            path="/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order/pageNumber/:pageNumber"
-            component={SearchScreen}
-            exact
-          ></Route>
-          <PrivateRoute
-            path="/profile"
-            component={ProfileScreen}
-          ></PrivateRoute>
-          <PrivateRoute path="/map" component={MapScreen}></PrivateRoute>
-          <AdminRoute
-            path="/productlist"
-            component={ProductListScreen}
-            exact
-          ></AdminRoute>
-          <AdminRoute
-            path="/productlist/pageNumber/:pageNumber"
-            component={ProductListScreen}
-            exact
-          ></AdminRoute>
-          <AdminRoute
-            path="/orderlist"
-            component={OrderListScreen}
-            exact
-          ></AdminRoute>
-          <AdminRoute path="/userlist" component={UserListScreen}></AdminRoute>
-          <AdminRoute
-            path="/user/:id/edit"
-            component={UserEditScreen}
-          ></AdminRoute>
+          <Routes>
+            <Route path="/seller/:id" element={<SellerScreen />}></Route>
+            <Route path="/cart" element={<CartScreen />}></Route>
+            <Route path="/cart/:id" element={<CartScreen />}></Route>
+            <Route
+              path="/product/:id"
+              element={<ProductScreen />}
+              exact
+            ></Route>
+            <Route
+              path="/product/:id/edit"
+              element={ProductEditScreen}
+              exact
+            ></Route>
+            <Route path="/signin" element={<SigninScreen />}></Route>
+            <Route path="/register" element={<RegisterScreen />}></Route>
+            <Route path="/shipping" element={<ShippingAddressScreen />}></Route>
+            <Route path="/payment" element={<PaymentMethodScreen />}></Route>
+            <Route path="/placeorder" element={<PlaceOrderScreen />}></Route>
+            <Route path="/order/:id" element={<OrderScreen />}></Route>
+            <Route
+              path="/orderhistory"
+              element={<OrderHistoryScreen />}
+            ></Route>
+            <Route path="/search/name" element={<SearchScreen />} exact></Route>
+            <Route
+              path="/search/name/:name"
+              element={<SearchScreen />}
+              exact
+            ></Route>
+            <Route
+              path="/search/category/:category"
+              element={<SearchScreen />}
+              exact
+            ></Route>
+            <Route
+              path="/search/category/:category/name/:name"
+              element={<SearchScreen />}
+              exact
+            ></Route>
+            <Route
+              path="/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order/pageNumber/:pageNumber"
+              element={<SearchScreen />}
+              exact
+            ></Route>
 
-          <AdminRoute
-            path="/dashboard"
-            component={DashboardScreen}
-          ></AdminRoute>
-          <AdminRoute path="/support" component={SupportScreen}></AdminRoute>
+            <Route
+              path="/profile"
+              element={
+                <PrivateRoute>
+                  <ProfileScreen />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/map"
+              element={
+                <PrivateRoute>
+                  <MapScreen />
+                </PrivateRoute>
+              }
+            />
 
-          <SellerRoute
-            path="/productlist/seller"
-            component={ProductListScreen}
-          ></SellerRoute>
-          <SellerRoute
-            path="/orderlist/seller"
-            component={OrderListScreen}
-          ></SellerRoute>
+            <Route
+              path="/productlist"
+              element={
+                <AdminRoute>
+                  <ProductListScreen />
+                </AdminRoute>
+              }
+            />
 
-          <Route path="/" component={HomeScreen} exact></Route>
+            <Route
+              path="/productlist/pageNumber/:pageNumber"
+              element={
+                <AdminRoute>
+                  <ProductListScreen />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/orderlist"
+              element={
+                <AdminRoute>
+                  <OrderListScreen />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/userlist"
+              element={
+                <AdminRoute>
+                  <UserListScreen />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/user/:id/edit"
+              element={
+                <AdminRoute>
+                  <UserEditScreen />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <AdminRoute>
+                  <DashboardScreen />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/support"
+              element={
+                <AdminRoute>
+                  <SupportScreen />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/productlist/seller"
+              element={
+                <SellerRoute>
+                  <ProductListScreen />
+                </SellerRoute>
+              }
+            />
+            <Route
+              path="/orderlist/seller"
+              element={
+                <SellerRoute>
+                  <OrderListScreen />
+                </SellerRoute>
+              }
+            />
+
+            <Route path="/" element={<HomeScreen />} exact></Route>
+          </Routes>
         </main>
         <footer className="row center">
           {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}

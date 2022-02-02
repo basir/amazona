@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { listProducts } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -9,6 +9,7 @@ import Rating from '../components/Rating';
 import { prices, ratings } from '../utils';
 
 export default function SearchScreen(props) {
+  const navigate = useNavigate();
   const {
     name = 'all',
     category = 'all',
@@ -67,7 +68,7 @@ export default function SearchScreen(props) {
           <select
             value={order}
             onChange={(e) => {
-              props.history.push(getFilterUrl({ order: e.target.value }));
+              navigate(getFilterUrl({ order: e.target.value }));
             }}
           >
             <option value="newest">Newest Arrivals</option>

@@ -409,3 +409,21 @@ $ npm start
      1.  use socket io to create backend
      2.  create chat box component
      3.  create support screen
+ 63. Upgrade To React 17, Router 6, Mongoose 6
+     1.  Backend
+     2.  Uninstall and install all packages
+     3.  remove options in mongoose connect
+     4.  wrap mailgun in try catch in orderRouter
+     5.  Frontend
+     6.  Uninstall and install all packages
+     7.  remove <Route> in search box
+     8.  wrap all <Route> in <Routes>
+     9.  replace <Route component={Screen}> with <Route element={<Screen/>}> 
+     10. replace <PrivateRoute> with <Route element={<PrivateRoute><Screen /> </PrivateRoute>}/>
+     11. replace <AdminRoute> and <SellerRoute> too
+     12. Update PrivateRoute, AdminRoute and  SellerRoute
+     12. replace push() with navigate() from useNavigate
+     13. replace props.match.params.id with const params = useParams();
+     14. replace props.location.search with const { search } = useLocation(); and URLSearchParams
+     15. replace props.match.path with const {pathname} = useLocation();
+     16. put userInfo in useEffect in ChatBox, SupportScreen

@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Axios from 'axios';
+import { useNavigate, useParams } from 'react-router-dom';
 import { detailsProduct, updateProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants';
 
 export default function ProductEditScreen(props) {
-  const productId = props.match.params.id;
+  const navigate = useNavigate();
+  const params = useParams();
+  const { id: productId } = params;
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('');
@@ -29,7 +32,7 @@ export default function ProductEditScreen(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     if (successUpdate) {
-      props.history.push('/productlist');
+      navigate('/productlist');
     }
     if (!product || product._id !== productId || successUpdate) {
       dispatch({ type: PRODUCT_UPDATE_RESET });
@@ -43,7 +46,7 @@ export default function ProductEditScreen(props) {
       setBrand(product.brand);
       setDescription(product.description);
     }
-  }, [product, dispatch, productId, successUpdate, props.history]);
+  }, [product, dispatch, productId, successUpdate, navigate]);
   const submitHandler = (e) => {
     e.preventDefault();
     // TODO: dispatch update product

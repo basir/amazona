@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createOrder } from '../actions/orderActions';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { ORDER_CREATE_RESET } from '../constants/orderConstants';
@@ -8,9 +8,10 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
 export default function PlaceOrderScreen(props) {
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
   if (!cart.paymentMethod) {
-    props.history.push('/payment');
+    navigate('/payment');
   }
   const orderCreate = useSelector((state) => state.orderCreate);
   const { loading, success, error, order } = orderCreate;
@@ -27,10 +28,10 @@ export default function PlaceOrderScreen(props) {
   };
   useEffect(() => {
     if (success) {
-      props.history.push(`/order/${order._id}`);
+      navigate(`/order/${order._id}`);
       dispatch({ type: ORDER_CREATE_RESET });
     }
-  }, [dispatch, order, props.history, success]);
+  }, [dispatch, order, navigate, success]);
   return (
     <div>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
